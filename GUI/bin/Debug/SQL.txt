@@ -11,7 +11,7 @@ create table Country (
 create table City (
 	id int GENERATED ALWAYS AS IDENTITY not null primary key,
 	name varchar(50) not null,
-	country int not null REFERENCES country (id),
+	country int not null REFERENCES country (id) ON DELETE CASCADE,
 	isCapital boolean not null default(false)
 );
 $$;
@@ -36,13 +36,13 @@ CREATE TRIGGER trig_count_insert
 CREATE OR REPLACE FUNCTION function_count_delete() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    update country set cities_count = (select count(id) from city where country = new.country) where id = new.country;
+    update country set cities_count = (select count(id) from city where country = old.country) where id = old.country;
 	return new;
 END;
 $BODY$
 language plpgsql;
 
-CREATE TRIGGER trig_count
+CREATE TRIGGER trig_count_delete
      AFTER delete ON city
      FOR EACH ROW
      EXECUTE PROCEDURE function_count_delete();

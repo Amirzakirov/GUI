@@ -53,7 +53,6 @@ namespace GUI
                 adapter1.Fill(ds1);
                 gvCity.DataSource = ds1.Tables[0];
             }
-            ShowCity();
         }
 
         // Поиск страны
@@ -130,6 +129,7 @@ namespace GUI
                 cmd.ExecuteNonQuery();
             }
             ShowCountry();
+            ShowCity();
         }
 
         // Показать все города
@@ -166,10 +166,21 @@ namespace GUI
             using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("call clear_tables();", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("call clear_table_city();", conn);
                 cmd.ExecuteNonQuery();
             }
             ShowCity();
+            ShowCountry();
+        }
+
+        private void btnShowCity_Click(object sender, EventArgs e)
+        {
+            ShowCity();
+        }
+
+        private void btnShowCountry_Click(object sender, EventArgs e)
+        {
+            ShowCountry();
         }
 
         // Очистить таблицы

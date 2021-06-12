@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShowCity = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -43,6 +44,9 @@
             this.gvCity = new System.Windows.Forms.DataGridView();
             this.btnClearCity = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddCountry = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnDeleteCountry = new System.Windows.Forms.Button();
             this.btnSearchCountry = new System.Windows.Forms.Button();
             this.gvCountry = new System.Windows.Forms.DataGridView();
@@ -53,9 +57,7 @@
             this.btnClearTables = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnAddCountry = new System.Windows.Forms.Button();
+            this.btnShowCountry = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCity)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,6 +68,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnShowCity);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox2);
@@ -83,6 +86,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 360);
             this.panel1.TabIndex = 0;
+            // 
+            // btnShowCity
+            // 
+            this.btnShowCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnShowCity.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnShowCity.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnShowCity.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnShowCity.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnShowCity.Location = new System.Drawing.Point(7, 34);
+            this.btnShowCity.Name = "btnShowCity";
+            this.btnShowCity.Size = new System.Drawing.Size(251, 20);
+            this.btnShowCity.TabIndex = 19;
+            this.btnShowCity.Text = "Показать данные";
+            this.btnShowCity.UseVisualStyleBackColor = false;
+            this.btnShowCity.Click += new System.EventHandler(this.btnShowCity_Click);
             // 
             // textBox3
             // 
@@ -224,6 +242,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnShowCountry);
             this.panel2.Controls.Add(this.btnAddCountry);
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label8);
@@ -236,6 +255,38 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(380, 360);
             this.panel2.TabIndex = 1;
+            // 
+            // btnAddCountry
+            // 
+            this.btnAddCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnAddCountry.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAddCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAddCountry.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddCountry.Location = new System.Drawing.Point(264, 278);
+            this.btnAddCountry.Name = "btnAddCountry";
+            this.btnAddCountry.Size = new System.Drawing.Size(109, 20);
+            this.btnAddCountry.TabIndex = 19;
+            this.btnAddCountry.Text = "Добавить";
+            this.btnAddCountry.UseVisualStyleBackColor = false;
+            this.btnAddCountry.Click += new System.EventHandler(this.btnAddCountry_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(130, 278);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(126, 20);
+            this.textBox4.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(4, 278);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 18);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Название страны:";
             // 
             // btnDeleteCountry
             // 
@@ -353,37 +404,20 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Таблица \"Страны\"";
             // 
-            // label8
+            // btnShowCountry
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(4, 278);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 18);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Название страны:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(130, 278);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(126, 20);
-            this.textBox4.TabIndex = 19;
-            // 
-            // btnAddCountry
-            // 
-            this.btnAddCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnAddCountry.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAddCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnAddCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnAddCountry.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddCountry.Location = new System.Drawing.Point(264, 278);
-            this.btnAddCountry.Name = "btnAddCountry";
-            this.btnAddCountry.Size = new System.Drawing.Size(109, 20);
-            this.btnAddCountry.TabIndex = 19;
-            this.btnAddCountry.Text = "Добавить";
-            this.btnAddCountry.UseVisualStyleBackColor = false;
-            this.btnAddCountry.Click += new System.EventHandler(this.btnAddCountry_Click);
+            this.btnShowCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnShowCountry.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnShowCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnShowCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnShowCountry.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnShowCountry.Location = new System.Drawing.Point(5, 34);
+            this.btnShowCountry.Name = "btnShowCountry";
+            this.btnShowCountry.Size = new System.Drawing.Size(251, 20);
+            this.btnShowCountry.TabIndex = 20;
+            this.btnShowCountry.Text = "Показать данные";
+            this.btnShowCountry.UseVisualStyleBackColor = false;
+            this.btnShowCountry.Click += new System.EventHandler(this.btnShowCountry_Click);
             // 
             // FormEdit
             // 
@@ -440,5 +474,7 @@
         private System.Windows.Forms.Button btnAddCountry;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnShowCity;
+        private System.Windows.Forms.Button btnShowCountry;
     }
 }
